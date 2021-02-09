@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Core.Business;
 using Entities.Concrete;
 
 namespace Business.Abstract
 {
-  public  interface IColorManager
+  public  interface IColorManager:IDataAccessRepository<Color>
   {
-      List<Color> GetAll();
-      Color GetCarsByColorId(int colorId);
+     
   }
 }

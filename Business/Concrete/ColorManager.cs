@@ -21,9 +21,26 @@ namespace Business.Concrete
             return _colorDal.GetAll();
         }
 
-        public Color GetCarsByColorId(int colorId)
+        public Color GetCarsById(int id)
         {
-            return _colorDal.GetById(c=>c.ColorId==colorId);
+            return _colorDal.GetById(c => c.ColorId == id);
         }
+
+        public void Add(Color entity)
+        {
+            _colorDal.Add(entity);
+        }
+
+        public void Update(Color entity)
+        {
+            _colorDal.Update(entity);
+        }
+
+        public void Delete(Color entity)
+        {
+            _colorDal.Delete(entity);
+        }
+
+       
     }
 }

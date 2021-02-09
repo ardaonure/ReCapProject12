@@ -21,9 +21,26 @@ namespace Business.Concrete
            return _brandDal.GetAll();
        }
 
-       public Brand GetCarsByBrandId(int brandId)
+       public Brand GetCarsById(int id)
        {
-           return _brandDal.GetById(b=>b.BrandId==brandId);
+           return _brandDal.GetById(b => b.BrandId == id);
        }
-    }
+
+       public void Add(Brand entity)
+       {
+           _brandDal.Add(entity);
+       }
+
+       public void Update(Brand entity)
+       {
+           _brandDal.Update(entity);
+        }
+
+       public void Delete(Brand entity)
+       {
+           _brandDal.Delete(entity);
+        }
+
+       
+   }
 }

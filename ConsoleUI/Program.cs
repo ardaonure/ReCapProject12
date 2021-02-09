@@ -28,6 +28,15 @@ namespace ConsoleUI
            
 
             CarManager carManager=new CarManager(new EfCarDal());
+
+            Console.WriteLine("Car Name" +"/" + "Brand Name"+ "/" + "Color Name"+"/" + "Daily Price" );
+            foreach (var car in carManager.GetCarDetails())
+            {
+                Console.WriteLine(car.Name + "--" + car.BrandName + "--" + car.ColorName + "--" + car.DailyPrice);
+            }
+
+
+
             //carManager.Add(new Car
             //{
             //    Name = "To",
@@ -35,10 +44,16 @@ namespace ConsoleUI
             //    DailyPrice = 220,
             //    Description = "Süper"
             //});
-            foreach (var item in carManager.GetAll())
-            {
-                Console.WriteLine(item.Name);
-            }
+            //foreach (var item in carManager.GetAll())
+            //{
+            //    Console.WriteLine(item.Name);
+            //}
+
+
+
+
+
+
 
 
             //ColorManager colorManager=new ColorManager(new EfColorDal());
