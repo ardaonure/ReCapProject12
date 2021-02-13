@@ -27,13 +27,24 @@ namespace ConsoleUI
 
            
 
-            CarManager carManager=new CarManager(new EfCarDal());
+            //CarManager carManager=new CarManager(new EfCarDal());
 
-            Console.WriteLine("Car Name" +"/" + "Brand Name"+ "/" + "Color Name"+"/" + "Daily Price" );
-            foreach (var car in carManager.GetCarDetails())
+            //Console.WriteLine("Car Name" +"/" + "Brand Name"+ "/" + "Color Name"+"/" + "Daily Price" );
+            //foreach (var car in carManager.GetCarDetails())
+            //{
+            //    Console.WriteLine(car.Name + "--" + car.BrandName + "--" + car.ColorName + "--" + car.DailyPrice);
+            //}
+
+
+            //Yeni müşteri ekleme:
+
+            CustomerManager customerManager=new CustomerManager(new EfCustomerDal());
+            customerManager.Add(new Customer
             {
-                Console.WriteLine(car.Name + "--" + car.BrandName + "--" + car.ColorName + "--" + car.DailyPrice);
-            }
+                CompanyName = "123 otosan"
+            });
+
+
 
 
 
