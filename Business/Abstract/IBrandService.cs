@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using Core.Business;
 using Entities.Concrete;
-using Entities.DTOs;
 
 namespace Business.Abstract
 {
-  public  interface ICarManager:IDataAccessRepository<Car>
+  public  interface IBrandService:IDataAccessRepository<Brand>
   {
-      List<CarDetailDto> GetCarDetails();
+      
   }
 }

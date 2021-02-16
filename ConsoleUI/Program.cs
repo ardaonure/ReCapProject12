@@ -38,12 +38,13 @@ namespace ConsoleUI
 
             //Yeni müşteri ekleme:
 
-            CustomerManager customerManager=new CustomerManager(new EfCustomerDal());
-            customerManager.Add(new Customer
-            {
-                CompanyName = "123 otosan"
-            });
+            //CustomerManager customerManager=new CustomerManager(new EfCustomerDal());
+            //customerManager.Add(new Customer
+            //{
+            //    CompanyName = "123 otosan"
+            //});
 
+          
 
 
 

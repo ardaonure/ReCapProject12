@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 
 namespace Business.Concrete
 {
-   public class BrandManager:IBrandManager
+   public class BrandManager:IBrandService
    {
        private IBrandDal _brandDal;
 
@@ -16,29 +18,37 @@ namespace Business.Concrete
            _brandDal = brandDal;
        }
 
-       public List<Brand> GetAll()
+       public IDataResult<List<Brand>> GetAll()
        {
-           return _brandDal.GetAll();
+           return new SuccessDataResult<List<Brand>>(_brandDal.GetAll(),Messages.Listed);
+
        }
 
-       public Brand GetCarsById(int id)
+       public IDataResult<Brand> GetCarsById(int id)
        {
-           return _brandDal.GetById(b => b.BrandId == id);
+           return new SuccessDataResult<Brand>(_brandDal.GetById(b => b.BrandId == id));
        }
 
-       public void Add(Brand entity)
+       public IResult Add(Brand entity)
        {
+           if (DateTime.Now.Hour==23)
+           {
+               return new ErrorResult<Brand>();
+           }
            _brandDal.Add(entity);
+           return new SuccessResult<Brand>();
        }
 
-       public void Update(Brand entity)
+       public IResult Update(Brand entity)
        {
            _brandDal.Update(entity);
+           return new SuccessResult<Brand>();
         }
 
-       public void Delete(Brand entity)
+       public IResult Delete(Brand entity)
        {
            _brandDal.Delete(entity);
+           return new SuccessResult<Brand>();
         }
 
        

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 
@@ -16,38 +18,41 @@ namespace Business.Concrete
            _rentalDal = rentalDal;
        }
 
-       public List<Rental> GetAll()
+
+
+       public IDataResult<List<Rental>> GetAll()
        {
-          return _rentalDal.GetAll();
+           return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.Listed);
+
        }
 
-        public Rental GetCarsById(int id)
-        {
-            return _rentalDal.GetById(r=>r.Id==id);
-        }
+       public IDataResult<Rental> GetCarsById(int id)
+       {
+           return new SuccessDataResult<Rental>(_rentalDal.GetById(r => r.Id == id));
+       }
 
-        public void Add(Rental entity)
-        {
-            Rental rental=new Rental();
-            if (rental.RentDate!=null)
-            {
-                _rentalDal.Add(entity);
-            }
-            else
-            {
-                Console.WriteLine("Arabanın kiralanması için teslim edilmesi gerekir.");
-            }
-            
-        }
+       public IResult Add(Rental entity)
+       {
+           var a = entity.RentDate;
+           if (a==null)
+           {
+               return new ErrorResult<Rental>(Messages.RentDateError);
+           }
+           _rentalDal.Add(entity);
+           return new SuccessResult<Rental>();
+       }
 
-        public void Update(Rental entity)
-        {
-            
-        }
+       public IResult Update(Rental entity)
+       {
+           _rentalDal.Update(entity);
+           return new SuccessResult<Rental>();
+       }
 
-        public void Delete(Rental entity)
-        {
-            
-        }
+       public IResult Delete(Rental entity)
+       {
+           _rentalDal.Delete(entity);
+           return new SuccessResult<Rental>();
+       }
+        
     }
 }

@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Core.Utilities.Results;
 
 namespace Core.Business
 {
   public  interface IDataAccessRepository<T>
     {
-        List<T> GetAll();
-        T GetCarsById(int Id);
-        void Add(T entity);
-        void Update(T entity);
-        void Delete(T entity);
+       IDataResult<List<T>> GetAll();
+       IDataResult<T> GetCarsById(int id);
+        IResult Add(T entity);
+        IResult Update(T entity);
+        IResult Delete(T entity);
     }
 }

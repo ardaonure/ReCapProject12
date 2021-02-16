@@ -6,8 +6,8 @@ using Entities.Concrete;
 
 namespace Business.Abstract
 {
-  public  interface IBrandManager:IDataAccessRepository<Brand>
+  public  interface IColorService:IDataAccessRepository<Color>
   {
-      
+     
   }
 }
