@@ -33,22 +33,22 @@ namespace Business.Concrete
        {
            if (DateTime.Now.Hour==23)
            {
-               return new ErrorResult<Brand>();
+               return new ErrorResult();
            }
            _brandDal.Add(entity);
-           return new SuccessResult<Brand>();
-       }
+           return new SuccessResult();
+        }
 
        public IResult Update(Brand entity)
        {
            _brandDal.Update(entity);
-           return new SuccessResult<Brand>();
+           return new SuccessResult();
         }
 
        public IResult Delete(Brand entity)
        {
            _brandDal.Delete(entity);
-           return new SuccessResult<Brand>();
+           return new SuccessResult();
         }
 
        

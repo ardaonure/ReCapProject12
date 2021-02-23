@@ -34,19 +34,19 @@ namespace Business.Concrete
         {
 
             _userDal.Add(entity);
-            return new SuccessResult<User>();
+            return new SuccessResult();
         }
 
         public IResult Update(User entity)
         {
             _userDal.Update(entity);
-            return new SuccessResult<User>();
+            return new SuccessResult();
         }
 
         public IResult Delete(User entity)
         {
             _userDal.Delete(entity);
-            return new SuccessResult<User>();
+            return new SuccessResult();
         }
     }
 }

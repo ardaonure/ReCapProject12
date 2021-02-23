@@ -36,23 +36,23 @@ namespace Business.Concrete
            var a = entity.RentDate;
            if (a==null)
            {
-               return new ErrorResult<Rental>(Messages.RentDateError);
+               return new ErrorResult(Messages.RentDateError);
            }
            _rentalDal.Add(entity);
-           return new SuccessResult<Rental>();
-       }
+           return new SuccessResult();
+        }
 
        public IResult Update(Rental entity)
        {
            _rentalDal.Update(entity);
-           return new SuccessResult<Rental>();
-       }
+           return new SuccessResult();
+        }
 
        public IResult Delete(Rental entity)
        {
            _rentalDal.Delete(entity);
-           return new SuccessResult<Rental>();
-       }
+           return new SuccessResult();
+        }
         
     }
 }

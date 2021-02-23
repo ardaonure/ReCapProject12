@@ -34,20 +34,20 @@ namespace Business.Concrete
       {
 
           _customerDal.Add(entity);
-          return new SuccessResult<Customer>();
-      }
+          return new SuccessResult();
+        }
 
       public IResult Update(Customer entity)
       {
           _customerDal.Update(entity);
-          return new SuccessResult<Customer>();
-      }
+          return new SuccessResult();
+        }
 
       public IResult Delete(Customer entity)
       {
           _customerDal.Delete(entity);
-          return new SuccessResult<Customer>();
-      }
+          return new SuccessResult();
+        }
 
 
      
